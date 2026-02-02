@@ -1,0 +1,231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 50%, #f67280 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+}
+
+.content {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px 60px;
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 600px;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    color: #ff4757;
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.message {
+    color: #555;
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.question {
+    color: #ff4757;
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.btn {
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.yes-btn {
+    background: #ff4757;
+    color: white;
+}
+
+.yes-btn:hover {
+    background: #ff3838;
+    transform: scale(1.1);
+}
+
+.no-btn {
+    background: #ddd;
+    color: #555;
+    position: relative;
+}
+
+.no-btn:hover {
+    background: #ccc;
+}
+
+.response {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 1.3em;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.response.success {
+    background: #ffecf0;
+    color: #ff4757;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Floating hearts animation */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.heart {
+    position: absolute;
+    font-size: 30px;
+    color: rgba(255, 255, 255, 0.7);
+    animation: float 6s infinite;
+}
+
+.heart::before {
+    content: '❤️';
+}
+
+.heart:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 8s;
+}
+
+.heart:nth-child(2) {
+    left: 25%;
+    animation-delay: 1s;
+    animation-duration: 7s;
+}
+
+.heart:nth-child(3) {
+    left: 40%;
+    animation-delay: 2s;
+    animation-duration: 9s;
+}
+
+.heart:nth-child(4) {
+    left: 60%;
+    animation-delay: 1.5s;
+    animation-duration: 7.5s;
+}
+
+.heart:nth-child(5) {
+    left: 75%;
+    animation-delay: 3s;
+    animation-duration: 8.5s;
+}
+
+.heart:nth-child(6) {
+    left: 90%;
+    animation-delay: 0.5s;
+    animation-duration: 7s;
+}
+
+@keyframes float {
+    0% {
+        bottom: -50px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        bottom: 100%;
+        opacity: 0;
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .content {
+        padding: 30px 20px;
+        margin: 20px;
+    }
+    
+    .title {
+        font-size: 2em;
+    }
+    
+    .question {
+        font-size: 1.5em;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
